@@ -19,7 +19,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container" style="width: 100%; padding-right: 3px;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -31,53 +31,46 @@
             </div>
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="reports" asp-controller="Home" asp-action="Index">Reports</a></li>
-                        <li><a asp-area="profile" asp-controller="Home" asp-action="Index">Profile</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right" style="padding-top: 5px;">
-                        <li>
-                            <form method="post" asp-area="" asp-controller="Home" asp-action="Logout">
-                                <button type="submit" class="btn btn-primary">Sign Out</button>
-                                @Html.AntiForgeryToken()
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="reports" asp-controller="Home" asp-action="Index">Reports</a></li>
+                    <li><a asp-area="profile" asp-controller="Home" asp-action="Index">Profile</a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li style="padding-top: 8px; padding-right: 15px;">
+                        <form method="post" asp-area="" asp-controller="Home" asp-action="Logout">
+                            <button type="submit" class="btn btn-primary">Sign Out</button>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </li>
+                </ul>
+
+            </div>
             }
             else
             {
-                <div class="navbar-collapse collapse pull-right" style="padding-top: 5px;">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            @if (ViewContext.ModelState.IsValid)
-                            {
-                                <div asp-validation-summary="All" class="form-validation"></div>
-                            }
-                            <form class="form-signin"
-                                  asp-area="" asp-controller="Home" asp-action="Login"
-                                  asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
-                                <div class="row">
-                                    <div class="col-md-5" style="padding-right: 3px; padding-left: 3px;"><input type="text" class="form-control" placeholder="Username" asp-for="Username" /></div>
-                                    <div class="col-md-5" style="padding-right: 3px; padding-left: 3px;"><input type="password" class="form-control" placeholder="Password" asp-for="Password" /></div>
-                                    <div class="col-md-2" style="padding-right: 3px; padding-left: 3px;"><button class="btn btn-primary btn-block">Sign In</button></div>
-                                </div>
-                                @Html.AntiForgeryToken()
-                            </form>
-                        </li>
-                    </ul>
+                <div class="navbar-collapse collapse pull-right" style="margin-top: 8px; margin-right: 15px;">
+                    <form class="form-inline pull-right"
+                          asp-area="" asp-controller="Home" asp-action="Login"
+                          asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
+                        <div class="row">
+                            <div class="col-md-5" style="padding-right: 0px; padding-left: 5px;"><input type="text" class="form-control" placeholder="Username" asp-for="Username" /></div>
+                            <div class="col-md-5" style="padding-right: 0px; padding-left: 5px;"><input type="password" class="form-control" placeholder="Password" asp-for="Password" /></div>
+                            <div class="col-md-2" style="padding-right: 0px; padding-left: 5px;"><button class="btn btn-primary btn-block">Sign In</button></div>
+                        </div>
+                        @Html.AntiForgeryToken()
+                    </form>
                 </div>
             }
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="container body-content" style="width: 100%;">
         @RenderBody()
-        <footer>
-            <p>&copy; 2017 - MyApp</p>
-        </footer>
     </div>
+    <footer>
+        <p>&copy; 2017 - MyApp</p>
+    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -96,16 +89,27 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
     </environment>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script type="text/javascript">
-jQuery(document).ready(function () {
-    if (window.site) {
-        var self = window.site;
-        self.setRootUrl('@Url.Content("~/")');
-        self.init();
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+    function ready(callback) {
+        // in case the document is already rendered
+        if (document.readyState != 'loading') callback();
+        // modern browsers
+        else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+        // IE <= 8
+        else document.attachEvent('onreadystatechange', function () {
+            if (document.readyState == 'complete') callback();
+        });
     }
-});
-</script>
-@RenderSection("Scripts", required: false)
+
+    ready(function () {
+        if (window.site) {
+            var self = window.site;
+            self.setRootUrl('@Url.Content("~/")');
+            self.init();
+        }
+    });
+    </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

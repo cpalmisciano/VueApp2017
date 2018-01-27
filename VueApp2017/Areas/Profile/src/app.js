@@ -13,4 +13,4 @@ const app = new Vue({
 
 app.$mount('#app');
 
-app.verifyToken();
+//app.verifyToken();

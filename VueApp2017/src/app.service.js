@@ -7,10 +7,10 @@ axios.interceptors.request.use(function (config) {
         return config;
     }
 
-    const token = window.localStorage.getItem('token')
+    const token = window.localStorage.getItem('token');
 
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+    if (config.url !== './Home/requestToken' && (!(token == 'undefined' || typeof token == 'undefined') && token)) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
 
     return config
@@ -23,7 +23,7 @@ const appService = {
                 .then(response => {
                     resolve(response.data)
                 }).catch(response => {
-                    reject(response.status)
+                    reject(response.status);
                 })
         })
     },

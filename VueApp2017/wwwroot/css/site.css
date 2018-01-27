@@ -4,13 +4,14 @@
 }
 
 footer {
-    z-index: 1000;
+    z-index: 1100;
     position: fixed;
     bottom: 0;
     height: 25px;
-    width: 90%;
+    width: 100%;
     background: #e4e4e4;
     background-color: aliceblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 /* Wrapping element */
@@ -29,11 +30,6 @@ footer {
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
 }
 
 /* Hide/rearrange for smaller screens */

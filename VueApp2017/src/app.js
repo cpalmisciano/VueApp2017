@@ -8,12 +8,17 @@ Vue.config.productionTip = false;
 const app = new Vue({
     router,
     store,
-    ...App
+    ...App,
+    data() {
+        return {
+            rootUrl: window.site.getRootUrl()
+        }
+    }
 });
 
 app.$mount('#app');
 
-app.getToken();
+//app.getToken();
 /*
 if (typeof window !== 'undefined') {
     let token = window.localStorage.getItem('token')
