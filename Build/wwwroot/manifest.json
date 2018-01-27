@@ -1,0 +1,13 @@
+﻿{
+  "name": "SiteXPro",
+  "short_name": "SXPro",
+  "description": "The most awesome application in the world",
+  "theme_color": "#138e69",
+  "background_color": "#f8ea48",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+  ],
+  "splash_pages": null
+}

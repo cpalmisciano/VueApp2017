@@ -1,0 +1,1 @@
+webpackJsonp([2],{55:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=function(){var e=this,n=e.$createElement;return(e._self._c||n)("h1",[e._v("Main View 1")])},l=[];r._withStripped=!0;var i={render:r,staticRenderFns:l},s=i,u=t(6),c=u(null,s,!1,null,null,null);c.options.__file="src\\components\\View1.vue";n.default=c.exports}});

@@ -1,0 +1,85 @@
+﻿"use strict";
+{
+    // Required to form a complete output path
+    const path = require('path');
+    const webpack = require('webpack');
+    const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+    let pathsToClean = [
+        'wwwroot/dist'
+    ];
+
+    module.exports = {
+        entry: {
+            'home': './src/app.js',
+            'reports': './Areas/Reports/src/app.js',
+            'profile': './Areas/Profile/src/app.js',
+            'vendor': ['vue', 'vue-router', 'vuex', 'axios']
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.vue$/,
+                    loader: 'vue-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        css: 'css-loader',
+                        'scss': 'css-loader|sass-loader'
+                    }
+                },
+                {
+                    test: /bootstrap\.native/,
+                    use: {
+                        loader: 'bootstrap.native-loader'
+                    }
+                },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                },
+                {
+                    test: /\.css$/,
+                    exclude: /node_modules/,
+                    use: ['style-loader', 'css-loader' ]
+                }
+            ]
+        },
+        resolve: {
+            alias: {
+                //'vue$': 'vue/dist/vue.esm.js', // Use the full build
+                'vue$': 'vue/dist/vue.min.js',
+                '@Source': path.resolve(__dirname, './src')
+            }
+        },
+        plugins: [
+            new CleanWebpackPlugin(pathsToClean),
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: '"development"'
+                    //NODE_ENV: '"production"'
+                }
+            }),
+            new webpack.optimize.ModuleConcatenationPlugin(),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                minChunks: function (module) {
+                    return module.context && module.context.indexOf('node_modules') !== -1;
+                }
+            }),
+            // minify with dead-code elimination
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+        ],
+        output: {
+            path: path.resolve(__dirname, './wwwroot/dist'),
+            publicPath: "/VueCore/dist/",
+            filename: '[name].js'
+            //filename: '[name].[hash].js',
+        }
+        //watch: true
+    };
+}

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <div id="app"></div>
+}
+else
+{
+    <div style="text-align:center; position: absolute; top: 50%; left: 50%; height: 30%; width: 50%; margin: -15% 0 0 -25%;">Home Page placeholder (Not Authenticated)</div>
+}
+@section scripts
+{
+@if (User.Identity.IsAuthenticated)
+{
+<script src="~/dist/vendor.js"></script>
+<script src="~/dist/home.js"></script>
+}
+}
