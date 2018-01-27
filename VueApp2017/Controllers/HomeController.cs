@@ -146,13 +146,22 @@ namespace VueApp2017.Controllers
         public async Task SignInUser(string username)
         {
             var claims = new List<Claim>() {
-                new Claim(ClaimTypes.Name, username, ClaimValueTypes.String),
+                new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Sid, "1234", ClaimValueTypes.Integer32), // for UserID
-                new Claim(ClaimTypes.UserData, "{\"Expires\": \"2017-12-22 8:30:00\", \"firstName\" : \"Carlos\" }", ClaimValueTypes.String)
+                new Claim(ClaimTypes.UserData, "{\"Expires\": \"2017-12-22 8:30:00\", \"firstName\" : \"Carlos\" }")
             };
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme, JwtRegisteredClaimNames.UniqueName.ToString(), null);
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
             var principal = new ClaimsPrincipal(identity);
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, 
+                new AuthenticationProperties
+                {
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(20),
+                    IsPersistent = false,
+                    AllowRefresh = false
+                });
         }
 
         [AllowAnonymous]

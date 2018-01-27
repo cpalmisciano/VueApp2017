@@ -1,0 +1,48 @@
+﻿@model VueApp2017.Models.SignInModel;
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container" style="width: 100%; padding-right: 3px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">My App</a>
+        </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="reports" asp-controller="Home" asp-action="Index">Reports</a></li>
+                <li><a asp-area="profile" asp-controller="Home" asp-action="Index">Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li style="padding-top: 8px; padding-right: 15px;">
+                    <form method="post" asp-area="" asp-controller="Home" asp-action="Logout">
+                        <button type="submit" class="btn btn-primary">Sign Out</button>
+                        @Html.AntiForgeryToken()
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    }
+    else
+    {
+        <div class="navbar-collapse collapse pull-right" style="margin-top: 8px; margin-right: 15px;">
+            <form class="form-inline pull-right"
+                    asp-area="" asp-controller="Home" asp-action="Login"
+                    asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
+                <div class="row">
+                    <div class="col-md-5" style="padding-right: 0px; padding-left: 5px;"><input type="text" class="form-control" placeholder="Username" asp-for="Username" /></div>
+                    <div class="col-md-5" style="padding-right: 0px; padding-left: 5px;"><input type="password" class="form-control" placeholder="Password" asp-for="Password" /></div>
+                    <div class="col-md-2" style="padding-right: 0px; padding-left: 5px;"><button class="btn btn-primary btn-block">Sign In</button></div>
+                </div>
+                @Html.AntiForgeryToken()
+            </form>
+        </div>
+    }
+    </div>
+</nav>
