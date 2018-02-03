@@ -18,11 +18,19 @@
 </head>
 <body>
     @await Html.PartialAsync("_Nav")
-    <div class="container body-content" style="width: 100%;">
+    <div class="container body-content" style="width: 100%; background-color: #fff; margin-bottom: 7px; margin-top: 5px;">
         @RenderBody()
+        @if (User.Identity.IsAuthenticated)
+        {
+        <ul class="sliding-menu">
+            <li><a href="#sliding">A sliding menu</a>
+            <li><a href="#details">Details</a>
+            <li><a href="#a11n">Accessibility</a>
+            <li><a href="#misc">Menus of unknown size</a>
+        </ul>
+        }
     </div>
     @await Html.PartialAsync("_Footer")
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
