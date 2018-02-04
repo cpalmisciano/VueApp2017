@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="ScaffoldingReadMe.txt" />
+    <None Remove="src\vue-shim.d.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,11 +31,16 @@
     <Folder Include="Areas\Profile\Data\" />
     <Folder Include="Areas\Profile\Models\" />
     <Folder Include="Areas\Profile\src\assets\" />
+    <Folder Include="Areas\React\src\" />
     <Folder Include="Areas\Reports\src\assets\" />
     <Folder Include="Areas\Reports\Data\" />
     <Folder Include="Areas\Reports\Models\" />
     <Folder Include="src\assets\" />
     <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\vue-shim.d.ts" />
   </ItemGroup>
 
 <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

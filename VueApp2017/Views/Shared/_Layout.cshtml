@@ -23,10 +23,9 @@
         @if (User.Identity.IsAuthenticated)
         {
         <ul class="sliding-menu">
-            <li><a href="#sliding">A sliding menu</a>
-            <li><a href="#details">Details</a>
-            <li><a href="#a11n">Accessibility</a>
-            <li><a href="#misc">Menus of unknown size</a>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="reports" asp-controller="Home" asp-action="Index">Reports</a></li>
+            <li><a asp-area="profile" asp-controller="Home" asp-action="Index">Profile</a></li>
         </ul>
         }
     </div>

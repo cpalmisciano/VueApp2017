@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Text;
 using VueApp2017.Services;
@@ -81,7 +82,15 @@ namespace VueApp2017
             //    });
             //});
 
-            services.AddMvc(options => { options.Filters.Add(new RequireHttpsAttribute()); });
+            services.AddMvc(options => { options.Filters.Add(new RequireHttpsAttribute()); })
+                .AddJsonOptions(opt =>
+                {
+                    if (opt.SerializerSettings.ContractResolver != null)
+                    {
+                        var resolver = opt.SerializerSettings.ContractResolver as DefaultContractResolver;
+                        resolver.NamingStrategy = null;
+                    }
+                });
             //services.AddMvc();
         }
 

@@ -4,80 +4,7 @@
     <h1>Main</h1>
     <router-link to="/">Main Home</router-link> | <router-link to="/view1">Main View 1</router-link>
     <router-view></router-view>
-    <br />
-    <div class="grid-container">
-      <div class="grid-cell">Cell 1</div>
-      <div class="grid-cell">Cell 2</div>
-      <div class="grid-cell">Cell 3</div>
-      <div class="grid-cell">Cell 4</div>
-      <div class="grid-cell">Cell 5</div>
-      <div class="grid-cell">Cell 6</div>
-      <div class="grid-cell">Cell 7</div>
-      <div class="grid-cell">Cell 8</div>
-      <div class="grid-cell">Cell 9</div>
-      <div class="grid-cell">Cell 10</div>
-      <div class="grid-cell">Cell 11</div>
-      <div class="grid-cell">Cell 12</div>
-      <div class="grid-cell">Cell 13</div>
-      <div class="grid-cell">Cell 14</div>
-      <div class="grid-cell">Cell 15</div>
-      <div class="grid-cell">Cell 16</div>
-      <div class="grid-cell">Cell 17</div>
-      <div class="grid-cell">Cell 18</div>
-      <div class="grid-cell">Cell 19</div>
-      <div class="grid-cell">Cell 20</div>
-      <div class="grid-cell">Cell 21</div>
-      <div class="grid-cell">Cell 22</div>
-      <div class="grid-cell">Cell 23</div>
-    </div>
-    <div class="grid-table">
-      <div class="grid-table-cell">
-        <div class="subgrid-container">
-          <div class="subgrid-cell">Cell 1</div>
-          <div class="subgrid-cell">Cell 2</div>
-          <div class="subgrid-cell">Cell 3</div>
-          <div class="subgrid-cell">Cell 4</div>
-          <div class="subgrid-cell">Cell 5</div>
-          <div class="subgrid-cell">Cell 6</div>
-          <div class="subgrid-cell">Cell 7</div>
-        </div>
-      </div>
-      <div class="grid-table-cell">
-        <div class="subgrid-container">
-          <div class="subgrid-cell">Cell 1</div>
-          <div class="subgrid-cell">Cell 2</div>
-          <div class="subgrid-cell">Cell 3</div>
-          <div class="subgrid-cell">Cell 4</div>
-          <div class="subgrid-cell">Cell 5</div>
-          <div class="subgrid-cell">Cell 6</div>
-          <div class="subgrid-cell">Cell 7</div>
-        </div>
-      </div>
-      <div class="grid-table-cell">
-        <div class="subgrid-container">
-          <div class="subgrid-cell">Cell 1</div>
-          <div class="subgrid-cell">Cell 2</div>
-          <div class="subgrid-cell">Cell 3</div>
-          <div class="subgrid-cell">Cell 4</div>
-          <div class="subgrid-cell">Cell 5</div>
-          <div class="subgrid-cell">Cell 6</div>
-          <div class="subgrid-cell">Cell 7</div>
-        </div>
-      </div>
-      <div class="grid-table-cell">
-        <div class="subgrid-container">
-          <div class="subgrid-cell">Cell 1</div>
-          <div class="subgrid-cell">Cell 2</div>
-          <div class="subgrid-cell">Cell 3</div>
-          <div class="subgrid-cell">Cell 4</div>
-          <div class="subgrid-cell">Cell 5</div>
-          <div class="subgrid-cell">Cell 6</div>
-          <div class="subgrid-cell">Cell 7</div>
-        </div>
-      </div>
-    </div>
-
-    <br />
+    <br/>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur. Nobis doloribus necessitatibus tempore voluptatem porro vel similique recusandae saepe explicabo atque quia ex, architecto eveniet, obcaecati, adipisci voluptates quo. Explicabo obcaecati dolorum ipsum, numquam est, harum tenetur unde error totam eveniet doloremque optio illum eum laboriosam, dolore accusantium qui voluptate quisquam debitis ea aliquid! Quam ullam id officiis aperiam cupiditate dicta sequi, nulla dolorum eius eligendi dolorem ea, numquam maxime, non iste! Adipisci deleniti minima corporis sunt possimus ratione unde, ea cum, porro animi harum aut deserunt similique sapiente praesentium ut illo rem, ullam est voluptatum! Enim officia non, adipisci? Voluptatum ducimus blanditiis iusto repellendus aliquam nesciunt laboriosam hic quis, in ipsa, nemo harum molestiae tenetur officia similique inventore rerum quibusdam et, pariatur, sapiente dicta dolore amet. Maiores, illo aliquam ex quisquam libero vero ab cum, eum magni aperiam similique accusantium, est expedita perspiciatis id inventore possimus quasi? A sapiente labore repellendus ea, accusantium blanditiis, temporibus error aliquam dolores, laudantium distinctio pariatur fugit unde? Fuga dolores eius totam velit numquam, id vel cum quis sequi obcaecati magnam quas quasi alias, perspiciatis doloribus quae rerum tenetur iure ipsa fugit maxime animi voluptatibus iste? Quod voluptatem sed magni eveniet magnam odit, recusandae modi adipisci perferendis ratione necessitatibus placeat cum repudiandae numquam mollitia quibusdam, quisquam minus non porro saepe veniam corporis. Eveniet, harum, adipisci. Aperiam molestiae, vitae culpa est fugit quas deserunt repudiandae autem quasi. Nobis placeat, reiciendis vero quaerat vel quae dolor voluptatibus sed eligendi facilis accusamus harum id officia asperiores mollitia itaque ipsa ut dolorem illo similique dolore vitae fugit accusantium! Animi harum quibusdam enim doloremque explicabo tempora dolore, neque, repellendus, in ea aperiam doloribus iste maiores natus aliquid provident? Quibusdam ex, cupiditate, dolorum iure cumque optio dolor molestias ut quo, voluptate deserunt quas tenetur quisquam quod nostrum eveniet sed eius voluptates vero ipsum hic vitae? Neque obcaecati dolor possimus sunt fugiat placeat saepe, culpa quae libero atque fugit corporis natus quia quo consectetur, incidunt, ab modi mollitia veritatis? Assumenda accusantium illum quam eveniet qui quidem provident omnis id, dolorem praesentium quos debitis, quas maxime sapiente vel ipsa eius delectus eum dolores amet necessitatibus? Voluptas soluta, delectus perferendis illum voluptate, ea architecto non quasi eveniet eos dolore dolorum voluptatem sequi quaerat quam consequatur reiciendis velit! Quos cumque doloremque sed! Repudiandae quam voluptatem modi a, error natus odio molestiae. Atque obcaecati quisquam maxime, eius nobis laborum explicabo, quasi nam vero reprehenderit repellendus magni maiores esse animi fugiat aut ut soluta? Nobis praesentium odio at animi quas maxime quia ea recusandae corrupti, esse ipsam corporis ad quam facere illum eius, commodi dolore pariatur perferendis! Quas adipisci qui neque beatae soluta quaerat repellendus aliquam, accusantium. Et incidunt veniam, doloribus sunt distinctio quis, consequuntur, minima nobis, dolor maxime fugiat! Ut magni libero accusamus minus nesciunt, est suscipit dignissimos voluptatem quia accusantium temporibus. Assumenda sunt magni aliquid nihil et maxime! Recusandae quas placeat veritatis ut! Velit maiores eum minus, alias veritatis cumque nihil ducimus aspernatur eos numquam suscipit quidem ut atque doloribus aliquid facere ad voluptatibus eius. Ad illo, debitis, voluptas obcaecati, ab harum pariatur laborum quos et fugit omnis iste aspernatur? Accusamus quia, voluptate deleniti eligendi sed, quas qui dolores quae accusantium sint est saepe, vero fugit excepturi distinctio iste quasi repellendus molestias commodi blanditiis nemo. Et porro, accusamus distinctio. Tempore eius rem eaque repudiandae impedit distinctio iste dignissimos aperiam deleniti ducimus. Architecto aliquid magni neque quasi, distinctio, aperiam sit autem repellendus qui molestias corporis facilis adipisci excepturi quibusdam optio quod porro, inventore consequuntur totam minus ex magnam odit pariatur. Nobis cupiditate quia error, odio eius a tenetur totam commodi dignissimos labore quibusdam, ut? Ducimus explicabo amet tenetur illo numquam beatae, dolorem, maiores vel quaerat culpa hic fugit modi deserunt. Velit omnis, voluptates maiores atque suscipit. Eaque modi ullam, quisquam! Doloremque, eveniet. Consequuntur, aperiam blanditiis sint. Reprehenderit consequatur aliquam necessitatibus sit debitis, dolores architecto est nesciunt quaerat non eius doloribus sequi, assumenda eaque, libero adipisci illum, officia odit ipsa. Nihil dolore earum architecto quia sunt voluptatibus quidem tempore laudantium delectus mollitia aspernatur tempora veritatis dolores quasi, a, modi id consequuntur ea quae, autem dicta illum atque. Ratione, enim tempora ex eum fugiat ipsam eaque veritatis assumenda consequatur tenetur quaerat rem odit blanditiis hic perspiciatis temporibus ad recusandae impedit nesciunt officiis porro esse. Ipsam enim repudiandae vitae, aliquid autem atque earum. Fugit, beatae architecto libero, aliquam sint enim! Itaque blanditiis alias nam quod asperiores cum excepturi quam iusto ad a officiis dolor, laboriosam et omnis ipsum id. Expedita aperiam fuga a corrupti saepe fugit laborum nulla ex eius, officia minus doloribus vel, dolorum alias suscipit accusamus. Nobis eaque pariatur numquam repudiandae vitae quis harum debitis neque accusamus! Vero temporibus quos, aut expedita sunt cupiditate accusantium labore facere, possimus, quasi et nulla nesciunt beatae, optio eos. Aspernatur dolor excepturi laborum non, quis minima. Esse ea sunt eveniet ut excepturi repellat a nobis veritatis neque quo minima, rerum, laborum totam odit quidem tempore harum fugit exercitationem ipsam voluptate pariatur. Autem adipisci nobis, alias excepturi laboriosam neque quae enim, magni est vel sapiente reiciendis recusandae quo, ipsum! Eligendi praesentium dolor placeat delectus a, perspiciatis totam soluta magnam aperiam. Totam eaque dolorum facilis reprehenderit corporis consectetur sit incidunt delectus impedit non tempora porro corrupti commodi, similique, dolor deleniti temporibus sunt. Officia ipsam ad consequatur error nihil culpa cum sequi numquam enim eligendi, quia cupiditate vel rerum unde qui ratione harum quo, maiores quibusdam, temporibus quaerat corporis mollitia eveniet voluptas odit! Animi aperiam veritatis voluptatem dignissimos temporibus vitae ducimus ipsa dicta. Cupiditate blanditiis assumenda atque possimus fuga delectus reprehenderit commodi! Magnam pariatur eaque fugiat nostrum sint soluta tenetur numquam doloremque, laborum enim quidem sapiente inventore recusandae vel ut mollitia minima et quia id voluptas! Nostrum dicta, est eligendi. Et aut quod corrupti deleniti quas. Hic quae, suscipit vero, recusandae, error voluptate commodi rerum odio ducimus dicta molestias illo praesentium architecto.
     </p>
@@ -85,7 +12,10 @@
   </div>
 </template>
 
-<script>
+<script lan="ts">
+  import Vue from "vue";
+  import Component from 'vue-class-component';
+
   import appService from '@Source/app.service.js';
   const Header = () => import(/* webpackChunkName: "shared.header" */ '@Source/components/shared/Header.vue');
   const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
@@ -93,7 +23,7 @@
   export default {
     components: { Header, Footer },
     methods:{
-      getToken(){
+      getToken() {
         appService.getToken()
           .then((data) => {
             window.localStorage.setItem('token', data.token);
@@ -104,8 +34,8 @@
       verifyToken(){
         appService.verifyToken()
           .then((data) => { console.log(data); })
-          .catch((status) => window.alert('Unable to get token: ' + status));
+          .catch((status) => window.alert('Unable to verify token: ' + status));
       }
     }
-  }
+  };
 </script>

@@ -36,6 +36,26 @@ const appService = {
                     reject(response.status)
                 })
         })
+    },
+    getData() {
+        return new Promise((resolve, reject) => {
+            axios.get('./api/Data/getData')
+                .then(response => {
+                    resolve(response.data)
+                }).catch(response => {
+                    reject(response.status);
+                })
+        })
+    },
+    getBooks() {
+        return new Promise((resolve, reject) => {
+            axios.get('./api/Data/getBooks')
+                .then(response => {
+                    resolve(response.data)
+                }).catch(response => {
+                    reject(response.status);
+                })
+        })
     }
 }
 

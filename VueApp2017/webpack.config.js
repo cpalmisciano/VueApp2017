@@ -28,9 +28,11 @@
                     }
                 },
                 {
-                    test: /bootstrap\.native/,
-                    use: {
-                        loader: 'bootstrap.native-loader'
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/]
                     }
                 },
                 {
@@ -46,6 +48,7 @@
             ]
         },
         resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
             alias: {
                 //'vue$': 'vue/dist/vue.esm.js', // Use the full build
                 'vue$': 'vue/dist/vue.min.js',

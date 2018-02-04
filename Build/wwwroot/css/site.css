@@ -1,10 +1,15 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    min-width: 300px;
+}
+
+.nav-up {
+    top: -50px;
 }
 
 footer {
-    z-index: 1100;
+    z-index: -1;
     position: fixed;
     bottom: 0;
     height: 25px;
@@ -12,13 +17,13 @@ footer {
     background: #e4e4e4;
     background-color: aliceblue;
     border: 1px solid rgb(0, 0, 0);
+    clear: both;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+div.body-content {
+    padding-right: 0.5em;
 }
 
 /* Carousel */
@@ -32,10 +37,157 @@ footer {
     width: 100%;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+.sliding-menu {
+    position: fixed;
+    top: 110px;
+    width: 10em;
+    margin: -2em 0 0 0;
+    z-index: 5;
+    background: hsl(86, 89%, 40%);
+    /*background: hsla(80, 90%, 40%, 0.6);*/
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    text-align: left;
+    border-right: none;
+    padding: 0.5em 1.5em 0.5em 0.5em;
+    border-radius: 0.5em 1em 1em 0.5em;
+    transition: 0.2s;
+    list-style-type: none;
+}
+
+    .sliding-menu:hover {
+        left: 0
+    }
+
+    .sliding-menu li {
+        margin: 1px;
+        border: 1px solid rgb(128, 128, 128);
+    }
+
+    .sliding-menu a {
+        position: relative;
+        left: 0;
+        color: #000;
+        transition: 0.2s;
+        width: 100%;
+        padding: 1px;
+    }
+
+    .sliding-menu a:focus {
+        left: -7em;
+        background: hsla(80, 90%, 40%, 0.7);
+    }
+
+    .sliding-menu:hover a:focus {
+        left: 0;
+        background: none;
+    }
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    justify-items: start;
+    align-items: start;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: minmax(25px, auto);
+    border: 1px solid rgb(128, 128, 128);
+}
+
+.grid-cell {
+
+}
+
+.grid-table {
+    display: grid;
+    justify-content: center;
+    justify-items: start;
+    align-items: stretch;
+    grid-auto-flow: row;
+    grid-auto-rows: minmax(25px, auto);
+}
+
+.grid-table-cell {
+    border: 1px solid rgb(128, 128, 128);
+    width: 100%;
+}
+
+.subgrid-container {
+    display: grid;
+    justify-content: center;
+    justify-items: start;
+    align-items: start;
+    grid-auto-flow: row;
+    grid-auto-rows: auto 10px auto;
+}
+
+.subgrid-header {
+    font-weight: 700;
+    font-size:larger;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.subgrid-sidebar {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.subgrid-content {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+/*Full screen*/
+@media screen and (min-width: 768px) {
+    div.body-content {
+        padding-left: 13.5em;
+    }
+
+    form.form-inline {
+        margin-top: 8px;
+    }
+
+    .sliding-menu {
+        left: 0;
+    }
+
+    .grid-table {
+        grid-template-columns: repeat(auto-fill, 350px);
+    }
+
+    .subgrid-container {
+        grid-template-columns: 110px 5px 220px;
     }
 }
+
+/*Reduced Format*/
+@media screen and (max-width: 767px) {
+    div.body-content {
+        padding-left: 1.5em;
+    }
+
+    form.form-inline {
+        margin-top: 0px;
+    }
+
+    .sliding-menu {
+        left: -9em;
+    }
+
+    .grid-table {
+        grid-template-columns: repeat(auto-fill, 300px);
+    }
+
+    .subgrid-container {
+        grid-template-columns: 90px 5px 190px;
+    }
+}
+
