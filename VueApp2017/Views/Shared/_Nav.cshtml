@@ -18,21 +18,16 @@
                 <li><a asp-area="reports" asp-controller="Home" asp-action="Index">Reports</a></li>
                 <li><a asp-area="profile" asp-controller="Home" asp-action="Index">Profile</a></li>
             </ul>
-            <ul class="nav navbar-nav pull-right">
-                <li style="padding-top: 8px; padding-right: 15px;">
-                    <form method="post" asp-area="" asp-controller="Home" asp-action="Logout">
-                        <button type="submit" class="btn btn-primary">Sign Out</button>
-                        @Html.AntiForgeryToken()
-                    </form>
-                </li>
-            </ul>
-
+            <form method="post" class="pull-right" style="padding-top: 8px !important;" asp-area="" asp-controller="Home" asp-action="Logout">
+                <button type="submit" class="btn btn-primary">Sign Out</button>
+                @Html.AntiForgeryToken()
+            </form>
         </div>
     }
     else
     {
         <div class="navbar-collapse collapse">
-            <form class="form-inline pull-right"
+            <form class="form-inline pull-right" style="padding-top: 8px !important;"
                     asp-area="" asp-controller="Home" asp-action="Login"
                     asp-route-returnUrl="@Context.Request.Query["returnUrl"]">
                 <div class="form-row">

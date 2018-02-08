@@ -12,11 +12,12 @@
   </div>
 </template>
 
-<script lan="ts">
+<script>
   import Vue from "vue";
-  import Component from 'vue-class-component';
 
-  import appService from '@Source/app.service.js';
+  //import appService from '@Source/app.service.js';
+  import store from '@Source/vuex/store.js';
+
   const Header = () => import(/* webpackChunkName: "shared.header" */ '@Source/components/shared/Header.vue');
   const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
 
@@ -24,18 +25,21 @@
     components: { Header, Footer },
     methods:{
       getToken() {
+        this.$store.dispatch('GET_TOKEN');
+
+        /*
+        // using appService
         appService.getToken()
-          .then((data) => {
-            window.localStorage.setItem('token', data.token);
-            window.localStorage.setItem('tokenExpiration', data.expiration);
-          })
-          .catch((status) => window.alert('Unable to get token:' + status));
-      },
-      verifyToken(){
-        appService.verifyToken()
-          .then((data) => { console.log(data); })
-          .catch((status) => window.alert('Unable to verify token: ' + status));
+        .then((data) => {
+        window.localStorage.setItem('token', data.token);
+        window.localStorage.setItem('tokenExpiration', data.expiration);
+        })
+        .catch((status) => window.alert('Unable to get token:' + status));
+        */
       }
+    },
+    mounted() {
+      //this.$store.dispatch('GET_TOKEN');
     }
   };
 </script>

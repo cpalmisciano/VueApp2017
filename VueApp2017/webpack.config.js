@@ -59,8 +59,8 @@
             new CleanWebpackPlugin(pathsToClean),
             new webpack.DefinePlugin({
                 'process.env': {
-                    NODE_ENV: '"development"'
                     //NODE_ENV: '"production"'
+                    NODE_ENV: '"development"'
                 }
             }),
             new webpack.optimize.ModuleConcatenationPlugin(),
@@ -81,8 +81,6 @@
             path: path.resolve(__dirname, './wwwroot/dist'),
             publicPath: "/VueCore/dist/",
             filename: '[name].js'
-            //filename: '[name].[hash].js',
         }
-        //watch: true
     };
 }

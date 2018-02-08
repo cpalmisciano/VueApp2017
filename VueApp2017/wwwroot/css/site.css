@@ -151,10 +151,6 @@ div.body-content {
         padding-left: 13.5em;
     }
 
-    form.form-inline {
-        margin-top: 8px;
-    }
-
     .sliding-menu {
         left: 0;
     }
@@ -172,10 +168,6 @@ div.body-content {
 @media screen and (max-width: 767px) {
     div.body-content {
         padding-left: 1.5em;
-    }
-
-    form.form-inline {
-        margin-top: 0px;
     }
 
     .sliding-menu {

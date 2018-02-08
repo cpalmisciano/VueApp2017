@@ -4,7 +4,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur.</p>
     <br/>
     <div class="grid-table">
-      <div class="grid-table-cell" v-for="book in books">
+      <div class="grid-table-cell" v-for="book in this.$store.state.books">
         <div class="subgrid-container">
           <div class="subgrid-header">
             {{ book.title }}
@@ -30,7 +30,8 @@
 </template>
 
 <script>
-  import appService from '@Source/app.service.js';
+  //import appService from '@Source/app.service.js';
+  import store from '@Source/vuex/store.js';
 
   export default {
     data() {
@@ -40,23 +41,21 @@
     },
     methods:{
       getBooks(){
+        //this.$store.dispatch('GET_BOOKS')
+        
+        /*
+        // using appService
         appService.getBooks()
-        .then((data) => {
-          this.books = data;
-        })
-        .catch((status) => window.alert('Unable to get token:' + status));
+          .then((data) => {
+            this.books = data;
+          })
+          .catch((status) => window.alert('Unable to get token:' + status));
+        */
       }
     },
-    beforeCreate() {
-
-    },
-    created() {
-
-    },
-    beforeMount() {
-    },
     mounted() {
-      this.getBooks();
+      //this.getBooks();
+      this.$store.dispatch('GET_BOOKS')
     }
   }
 </script>

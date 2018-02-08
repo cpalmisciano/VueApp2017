@@ -5,13 +5,14 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur.</p>
     <br/>
     <div class="grid-container">
-      <div class="grid-cell" v-for="item in items">{{ item }}</div>
+      <div class="grid-cell" v-for="item in this.$store.state.data">{{ item }}</div>
     </div>
   </div>
 </template>
 
 <script>
-  import appService from '@Source/app.service.js';
+  //import appService from '@Source/app.service.js';
+  import store from '@Source/vuex/store.js';
 
   export default {
     data() {
@@ -21,24 +22,21 @@
     },
     methods:{
       getData(){
+        //this.$store.dispatch('GET_DATA')
+
+        /*
+        // using appService
         appService.getData()
           .then((data) => {
             this.items = data;
           })
           .catch((status) => window.alert('Unable to get data:' + status));
+        */
       }
     },
-    beforeCreate() {
-
-    },
-    created() {
-
-    },
-    beforeMount() {
-    },
     mounted() {
-      this.getData();
+      //this.getData();
+      this.$store.dispatch('GET_DATA')
     }
-
   }
 </script>
