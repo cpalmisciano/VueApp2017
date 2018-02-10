@@ -4,6 +4,10 @@
     min-width: 300px;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 .nav-up {
     top: -50px;
 }
@@ -144,6 +148,16 @@ div.body-content {
     grid-row-start: 3;
     grid-row-end: 4;
 }
+
+.fade-transition {
+    transition: opacity 0.2s ease;
+}
+
+.fade-enter, .fade-leave {
+    opacity: 0;
+}
+
+/*** RESPONSIVE STYLES ***/
 
 /*Full screen*/
 @media screen and (min-width: 768px) {

@@ -4,7 +4,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur.</p>
     <br/>
     <div class="grid-table">
-      <div class="grid-table-cell" v-for="book in this.$store.state.books">
+      <div class="grid-table-cell" v-for="book in this.$store.state.books" :key="book.isbn">
         <div class="subgrid-container">
           <div class="subgrid-header">
             {{ book.title }}

@@ -11,6 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Areas\Lists\src\components\Demographics.vue" />
+    <None Remove="Areas\Lists\src\components\Distressed.vue" />
+    <None Remove="Areas\Lists\src\components\Geography.vue" />
+    <None Remove="Areas\Lists\src\components\Mortgage.vue" />
+    <None Remove="Areas\Lists\src\components\Other.vue" />
+    <None Remove="Areas\Lists\src\components\Property.vue" />
     <None Remove="ScaffoldingReadMe.txt" />
     <None Remove="src\vue-shim.d.ts" />
   </ItemGroup>
@@ -28,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Lists\src\vuex\" />
     <Folder Include="Areas\Profile\Data\" />
     <Folder Include="Areas\Profile\Models\" />
     <Folder Include="Areas\Profile\src\assets\" />

@@ -1,5 +1,5 @@
 ﻿<template>
-  <div id="app">
+  <div id="app" v-cloak>
     <Header></Header>
     <h1>Main</h1>
     <router-link to="/">Main Home</router-link> | <router-link to="/view1">Main View 1</router-link>
@@ -19,10 +19,13 @@
   import store from '@Source/vuex/store.js';
 
   const Header = () => import(/* webpackChunkName: "shared.header" */ '@Source/components/shared/Header.vue');
-  const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
+  
+  /** Footer was declared as a global component in app.js **/
+  //const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
 
   export default {
-    components: { Header, Footer },
+    //components: { Header, Footer },
+    components: { Header },
     methods:{
       getToken() {
         this.$store.dispatch('GET_TOKEN');
@@ -30,11 +33,11 @@
         /*
         // using appService
         appService.getToken()
-        .then((data) => {
-        window.localStorage.setItem('token', data.token);
-        window.localStorage.setItem('tokenExpiration', data.expiration);
-        })
-        .catch((status) => window.alert('Unable to get token:' + status));
+          .then((data) => {
+            window.localStorage.setItem('token', data.token);
+            window.localStorage.setItem('tokenExpiration', data.expiration);
+          })
+          .catch((status) => window.alert('Unable to get token:' + status));
         */
       }
     },

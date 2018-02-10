@@ -12,6 +12,7 @@
     module.exports = {
         entry: {
             'home': './src/app.js',
+            'lists': './Areas/Lists/src/app.js',
             'reports': './Areas/Reports/src/app.js',
             'profile': './Areas/Profile/src/app.js',
             'vendor': ['vue', 'vue-router', 'vuex', 'axios']
