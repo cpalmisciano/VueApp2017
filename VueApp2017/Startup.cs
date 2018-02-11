@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.AspNetCore.WebSockets.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -44,17 +45,22 @@ namespace VueApp2017
             })
             .AddJwtBearer(options =>
              {
+                 /*
                  options.RequireHttpsMetadata = true;
-                 options.Authority = "https://localhost/VueCore";
-                 //options.Authority = "http://localhost/VueCore";
-                 options.Audience = "VueApp2017Api";
-                 options.TokenValidationParameters.NameClaimType = "client_id";
+                 options.Authority = "https://localhost:44320/";
+                 //options.Authority = "https://localhost/VueCore";
+                 options.Audience = "https://localhost:44320/"; //"VueCore";
+                 //options.TokenValidationParameters.NameClaimType = "client_id";
                  options.RequireHttpsMetadata = false;
-                 options.SaveToken = true;
+                 //options.SaveToken = true;
+                 */
                  options.TokenValidationParameters = new TokenValidationParameters()
                  {
-                     ValidIssuer = Configuration["Tokens:Issuer"],
-                     ValidAudience = Configuration["Tokens:Issuer"],
+                     ValidateIssuer = true,
+                     ValidateAudience = true,
+                     ValidateIssuerSigningKey = true,
+                     ValidIssuer = Configuration["Tokens:Issuer"], //_configuration["Tokens:Issuer"], //"https://localhost:44320/", //Configuration["Tokens:Issuer"],
+                     ValidAudience = Configuration["Tokens:Issuer"], //"https://localhost:44320/", //Configuration["Tokens:Issuer"],
                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes((Configuration["Tokens:Key"].ToString()))),
                      ClockSkew = TimeSpan.Zero // remove delay of token when expire
                  };
@@ -66,12 +72,17 @@ namespace VueApp2017
             //        .Build();
             //});
 
-            services.AddAuthorization(options =>
-            {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
-                    .RequireAuthenticatedUser()
-                    .Build();
-            });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
+            //});
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+            //        .RequireAuthenticatedUser()
+            //        .Build();
+            //});
 
             // if we need to support API calls from a different domain
             //services.AddCors( options => {
@@ -82,16 +93,17 @@ namespace VueApp2017
             //    });
             //});
 
-            services.AddMvc(options => { options.Filters.Add(new RequireHttpsAttribute()); })
-                .AddJsonOptions(opt =>
-                {
-                    if (opt.SerializerSettings.ContractResolver != null)
-                    {
-                        var resolver = opt.SerializerSettings.ContractResolver as DefaultContractResolver;
-                        resolver.NamingStrategy = null;
-                    }
-                });
-            //services.AddMvc();
+            //services.AddMvc(options => { options.Filters.Add(new RequireHttpsAttribute()); })
+            //    .AddJsonOptions(opt =>
+            //    {
+            //        if (opt.SerializerSettings.ContractResolver != null)
+            //        {
+            //            var resolver = opt.SerializerSettings.ContractResolver as DefaultContractResolver;
+            //            resolver.NamingStrategy = null;
+            //        }
+            //    });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

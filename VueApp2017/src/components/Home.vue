@@ -14,26 +14,28 @@
 </template>
 
 <script>
+  // we need to wait to get a JWT to show the app
+
   //import appService from '@Source/app.service.js';
   import store from '@Source/vuex/store.js';
 
   export default {
+    /*
     data() {
       return {
         items: null
       }
     },
+    */
     methods:{
       getData(){
-        //this.$store.dispatch('GET_DATA')
-
         /*
         // using appService
         appService.getData()
-          .then((data) => {
-            this.items = data;
-          })
-          .catch((status) => window.alert('Unable to get data:' + status));
+        .then((data) => {
+        this.items = data;
+        })
+        .catch((status) => window.alert('Unable to get data:' + status));
         */
       }
     },

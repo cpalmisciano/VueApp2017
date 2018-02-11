@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace VueApp2017.Controllers
 {
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Produces("application/json")]
     [Route("api/Data")]
     public class DataController : Controller
@@ -25,16 +22,12 @@ namespace VueApp2017.Controllers
         [Route("GetData")]
         public IActionResult GetData()
         {
+            //you can get info on the user from here
+            //var user = this.ControllerContext.HttpContext.User;
+
             List<string> items = new List<string>();
             for (int i = 1; i < 24; i++)
                 items.Add("Cell " + i.ToString());
-
-            //string accessToken = User.FindFirst("jwt_token")?.Value
-
-            //var authenticateInfo = await HttpContext.Authentication.GetAuthenticateInfoAsync("Bearer");
-            //string accessToken = authenticateInfo.Properties.Items[".Token.jwt_token"];
-
-            //HttpContext.User.Claims.ToList().ForEach(item => dict.Add(item.Type, item.Value));
 
             return Ok(items);
         }
@@ -42,6 +35,9 @@ namespace VueApp2017.Controllers
         [Route("GetBooks")]
         public IActionResult GetBooks()
         {
+            //you can get info on the user from here
+            //var user = this.ControllerContext.HttpContext.User;
+
             // read JSON
             string json = System.IO.File.ReadAllText(_env.ContentRootPath + "\\Data\\books.json");
 

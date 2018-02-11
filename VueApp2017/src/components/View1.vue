@@ -1,5 +1,5 @@
 ﻿<template>
-  <div>
+  <div v-if="this.$store.state.isReady">
     <h1>Main View 1</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur.</p>
     <br/>
@@ -34,27 +34,7 @@
   import store from '@Source/vuex/store.js';
 
   export default {
-    data() {
-      return {
-        books: null
-      }
-    },
-    methods:{
-      getBooks(){
-        //this.$store.dispatch('GET_BOOKS')
-        
-        /*
-        // using appService
-        appService.getBooks()
-          .then((data) => {
-            this.books = data;
-          })
-          .catch((status) => window.alert('Unable to get token:' + status));
-        */
-      }
-    },
     mounted() {
-      //this.getBooks();
       this.$store.dispatch('GET_BOOKS')
     }
   }

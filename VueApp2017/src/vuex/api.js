@@ -2,22 +2,19 @@
 import axios from 'axios'
 
 export default {
-    setToken(token) {
-        axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-    },
     getToken(rootUrl) {
         return new Promise((resolve, reject) => {
             axios.get(rootUrl + 'Home/requestToken')
                 .then(response => {
-                    resolve(response.data)
+                    resolve(response.data);
                 }).catch(response => {
                     reject(response.status);
                 })
         })
     },
-    verifyToken(rootUrl) {
+    verifyToken(rootUrl, token) {
         return new Promise((resolve) => {
-            axios.get(rootUrl + 'Home/verifyToken')
+            axios.get(rootUrl + 'Home/verifyToken', { headers: { Authorization: `Bearer ${token}` } })
                 .then(response => {
                     resolve(response.data)
                 }).catch(response => {
@@ -25,9 +22,10 @@ export default {
                 })
         })
     },
-    getData(rootUrl) {
+    getData(rootUrl, token) {
         return new Promise((resolve, reject) => {
-            axios.get(rootUrl + 'api/Data/getData')
+            //axios.setToken(token, 'Bearer')
+            axios.get(rootUrl + 'api/Data/getData', { headers: { Authorization: `Bearer ${token}` } })
                 .then(response => {
                     resolve(response.data)
                 }).catch(response => {
@@ -35,9 +33,10 @@ export default {
                 })
         })
     },
-    getBooks(rootUrl) {
+    getBooks(rootUrl, token) {
         return new Promise((resolve, reject) => {
-            axios.get(rootUrl + 'api/Data/getBooks')
+            //axios.setToken(token, 'Bearer')
+            axios.get(rootUrl + 'api/Data/getBooks', { headers: { Authorization: `Bearer ${token}` } })
                 .then(response => {
                     resolve(response.data)
                 }).catch(response => {

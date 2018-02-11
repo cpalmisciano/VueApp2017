@@ -8,11 +8,11 @@ Vue.config.productionTip = false;
 /** Global Event Bus **/
 const EventBus = new Vue({
     created() {
-        this.$on('my-event', this.handleMyEvent)
+        this.$on('token-received', this.tokenReceived)
     },
     methods: {
-        handleMyEvent($event) {
-            console.log('My event caught in global event bus', $event)
+        tokenReceived($event) {
+            console.log('Token received (m)', $event)
         }
     }
 });
@@ -27,21 +27,23 @@ Object.defineProperties(Vue.prototype, {
 /** end Event Bus definition **/
 
 // declare global component (global for this app)
-const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
-Vue.component('Footer', Footer);
+
+//const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
+//Vue.component('Footer', Footer);
 
 const app = new Vue({
     router,
     store,
     ...App,
-    created () {
-        this.$bus.$on('my-event', ($event) => {
-            console.log('My event has been triggered', $event)
-        })
+    beforeMount() {
+        const token = window.localStorage.getItem('token');
+        if (!token) {
+            this.$store.dispatch('GET_TOKEN');
+        } else {
+            this.$store.commit('SET_READY_MUTATION', token);
+        }
     }
 });
 
 //if we are here then the user is already authenticated
 app.$mount('#app');
-
-app.getToken();

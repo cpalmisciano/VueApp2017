@@ -15,7 +15,7 @@
             'lists': './Areas/Lists/src/app.js',
             'reports': './Areas/Reports/src/app.js',
             'profile': './Areas/Profile/src/app.js',
-            'vendor': ['vue', 'vue-router', 'vuex', 'axios']
+            'vendor': ['vue', 'axios', 'vue-router', 'vuex']
         },
         module: {
             rules: [
@@ -28,14 +28,14 @@
                         'scss': 'css-loader|sass-loader'
                     }
                 },
-                {
-                    test: /\.tsx?$/,
-                    loader: 'ts-loader',
-                    exclude: /node_modules/,
-                    options: {
-                        appendTsSuffixTo: [/\.vue$/]
-                    }
-                },
+                //{
+                //    test: /\.tsx?$/,
+                //    loader: 'ts-loader',
+                //    exclude: /node_modules/,
+                //    options: {
+                //        appendTsSuffixTo: [/\.vue$/]
+                //    }
+                //},
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
@@ -49,10 +49,10 @@
             ]
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
+            //extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
             alias: {
-                //'vue$': 'vue/dist/vue.esm.js', // Use the full build
                 'vue$': 'vue/dist/vue.min.js',
+                //'vue$': 'vue/dist/vue.esm.js', // Use the full build
                 '@Source': path.resolve(__dirname, './src')
             }
         },
@@ -60,8 +60,8 @@
             new CleanWebpackPlugin(pathsToClean),
             new webpack.DefinePlugin({
                 'process.env': {
-                    //NODE_ENV: '"production"'
-                    NODE_ENV: '"development"'
+                    NODE_ENV: '"production"'
+                    //NODE_ENV: '"development"'
                 }
             }),
             new webpack.optimize.ModuleConcatenationPlugin(),
