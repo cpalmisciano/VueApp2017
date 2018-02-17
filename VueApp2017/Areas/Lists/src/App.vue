@@ -8,7 +8,7 @@
         <router-view @filterAdded="newFilterAdded"></router-view>
       </div>
       <div class="col-md-4">
-        <list-criteria v-bind:filters="filters" v-bind:outputs="outputs" v-bind:from="from" v-bind:to="to"></list-criteria>
+        <list-criteria :filters="filters" :outputs="outputs" :from="from" :to="to"></list-criteria>
       </div>
     </div>
     <Footer></Footer>
@@ -22,7 +22,7 @@
   const Criteria = () => import(/* webpackChunkName: "lists.criteria" */ './components/Criteria.vue');
 
   export default {
-    components: { Header, Footer, "list-criteria": Criteria },
+    components: { Header, Footer, listCriteria: Criteria },
     data(){
       return {
         filters: [],

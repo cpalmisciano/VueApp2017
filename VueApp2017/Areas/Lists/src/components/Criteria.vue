@@ -27,8 +27,14 @@
 <script>
   export default {
     props:{
-      filters: [],
-      outputs: [],
+      filters: {
+        type: Array,
+        default: function () { return [] }
+      },
+      outputs: {
+        type: Array,
+        default: function () { return [] }
+      },
       from: 0,
       to: 0
     }

@@ -1,6 +1,40 @@
 ﻿import Vue from 'vue'
 import axios from 'axios'
 
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+
+    //if (typeof window === 'undefined') {
+    //    return config;
+    //}
+
+    //const token = window.localStorage.getItem('token');
+
+    //if (config.url !== './Home/requestToken' && (!(token == 'undefined' || typeof token == 'undefined') && token)) {
+    //    config.headers.Authorization = `Bearer ${token}`;
+    //}
+
+    console.log('sending request');
+
+    return config;
+},
+function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+});
+
+axios.interceptors.response.use(function (response) {
+    // Do something with response data
+    // like reset timeout
+    console.log('getting response');
+
+    return response;
+},
+function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+});
+
 export default {
     getToken(rootUrl) {
         return new Promise((resolve, reject) => {
