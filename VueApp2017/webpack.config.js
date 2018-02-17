@@ -51,8 +51,8 @@
         resolve: {
             //extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
             alias: {
-                'vue$': 'vue/dist/vue.min.js',
-                //'vue$': 'vue/dist/vue.esm.js', // Use the full build
+                //'vue$': 'vue/dist/vue.min.js',
+                'vue$': 'vue/dist/vue.esm.js', // Use the full build
                 '@Source': path.resolve(__dirname, './src')
             }
         },
@@ -60,8 +60,8 @@
             new CleanWebpackPlugin(pathsToClean),
             new webpack.DefinePlugin({
                 'process.env': {
-                    NODE_ENV: '"production"'
-                    //NODE_ENV: '"development"'
+                    //NODE_ENV: '"production"'
+                    NODE_ENV: '"development"'
                 }
             }),
             new webpack.optimize.ModuleConcatenationPlugin(),
@@ -80,7 +80,7 @@
         ],
         output: {
             path: path.resolve(__dirname, './wwwroot/dist'),
-            publicPath: "/VueCore/dist/",
+            publicPath: "/dist/",
             filename: '[name].js'
         }
     };

@@ -25,7 +25,7 @@
   //const Footer = () => import(/* webpackChunkName: "shared.footer" */ '@Source/components/shared/Footer.vue');
 
   export default {
-    components: { Header, Footer },
+    components: { Header, Footer }
     //components: { Header }
   };
 </script>

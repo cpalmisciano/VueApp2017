@@ -1,5 +1,5 @@
 ﻿<template>
-  <div v-if="this.$store.state.isReady">
+  <div>
     <h1>Main View 1</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim suscipit eligendi ipsum reiciendis ipsam, expedita quam maxime harum officiis doloribus nesciunt inventore vitae commodi molestiae! Voluptatum, animi! Similique placeat, nam debitis, repellat tempore fuga expedita quisquam id quod nemo tenetur.</p>
     <br/>

@@ -12,7 +12,7 @@ const router = new VueRouter({
     //mode: 'history',
     base: '/lists/',
     routes: [
-        { path: '/', component: Filter, props: { catId: 3 } },
+        { path: '', component: Filter, props: { catId: 3 } },
         { path: '/property', component: Filter, props: { catId: 4 } },
         { path: '/mortgage', component: Filter, props: { catId: 5 } },
         { path: '/demographics', component: Filter, props: { catId: 6 } },

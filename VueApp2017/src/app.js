@@ -1,18 +1,21 @@
 ﻿import Vue from 'vue';
+//import Vuex from 'vuex';
+
 import App from './App.vue';
 import router from './router';
 import store from '@Source/vuex/store.js';
 
 Vue.config.productionTip = false;
+//Vue.use(Vuex);  // define Vuex as global
 
 /** Global Event Bus **/
 const EventBus = new Vue({
     created() {
-        this.$on('token-received', this.tokenReceived)
+        this.$on('token-received', this.tokenReceived);
     },
     methods: {
         tokenReceived($event) {
-            console.log('Token received (m)', $event)
+            console.log('Token received (m)', $event);
         }
     }
 });
@@ -20,7 +23,7 @@ const EventBus = new Vue({
 Object.defineProperties(Vue.prototype, {
     $bus: {
         get: function () {
-            return EventBus
+            return EventBus;
         }
     }
 });
@@ -37,11 +40,10 @@ const app = new Vue({
     ...App,
     beforeMount() {
         const token = window.localStorage.getItem('token');
-        if (!token) {
-            this.$store.dispatch('GET_TOKEN');
-        } else {
-            this.$store.commit('SET_READY_MUTATION', token);
+        if (token) {
+            window.localStorage.removeItem('token');
         }
+        this.$store.dispatch('GET_TOKEN');
     }
 });
 

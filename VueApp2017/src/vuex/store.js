@@ -1,21 +1,21 @@
 ﻿import Vue from 'vue';
-import Vuex from 'vuex';
-import api from './api.js'
+import Vuex from 'vuex';  // it is already global
+import api from './api.js';
 
-Vue.use(Vuex);
+Vue.use(Vuex);  // defines Vuex as global
 
 const state = {
     //initial state / define vars
-    rootUrl: './VueCore/',
+    rootUrl: './',
     authToken: null,
     isReady: false,
     data: null,
     books: null
 };
 
-if (process.env.NODE_ENV === "development") {
-    state.rootUrl = './';
-}
+//if (process.env.NODE_ENV === "development") {
+//    state.rootUrl = './';
+//}
 
 /**
  *  Action perform the calls that affect the data
@@ -42,14 +42,9 @@ const actions = {
  * Mutation update the data state
  */
 const mutations = {
-    SET_READY_MUTATION: (state, token) => {
-        state.authToken = token;
-        state.isReady = true;
-        console.info('mutation SET_READY_MUTATION');
-    },
     GET_TOKEN_MUTATION: (state, response) => {
         window.localStorage.setItem('token', response.token);
-        window.localStorage.setItem('tokenExpiration', response.expiration);
+        //window.localStorage.setItem('tokenExpiration', response.expiration);
    
         state.authToken = response.token;
         state.isReady = true;
@@ -66,7 +61,7 @@ const mutations = {
     API_FAILURE_MUTATION: (state, error) => {
         //console.error(error);
         console.info('mutation API_FAILURE_MUTATION received');
-    },
+    }
 };
 
 const store = new Vuex.Store({
